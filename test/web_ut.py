@@ -9,17 +9,17 @@ from selenium.webdriver.chrome.options import Options
 
 
 class ISelenium(unittest.TestCase):
-    # 读入配置文件
-    def get_config(self):
-        config = configparser.ConfigParser()
-        config.read(os.path.join(os.environ['HOME'], 'iselenium.ini'))
-        return config
+    # # 读入配置文件
+    # def get_config(self):
+    #     config = configparser.ConfigParser()
+    #     config.read(os.path.join(os.environ['HOME'], 'iselenium.ini'))
+    #     return config
 
     def tearDown(self):
         self.driver.quit()
 
     def setUp(self):
-        config = self.get_config()
+        config = r"C:\Users\Administrator\Desktop\常用信息\学习目录\测开练习\jenkins\jenkins_UI自动化\chromedriver.exe"
 
         # 控制是否采用无界面形式运行自动化测试
         try:
@@ -33,7 +33,7 @@ class ISelenium(unittest.TestCase):
             print('使用无界面方式运行')
             chrome_options.add_argument("--headless")
 
-        self.driver = webdriver.Chrome(executable_path=config.get('driver', 'chrome_driver'),
+        self.driver = webdriver.Chrome(executable_path=r"C:\Users\Administrator\Desktop\常用信息\学习目录\测开练习\jenkins\jenkins_UI自动化\chromedriver.exe",
                                        chrome_options=chrome_options)
 
     def test_webui_1(self):
